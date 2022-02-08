@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header, .footer{
+    height: 200px;
+    background-image: url(../images/bg.png);
+    display: flex;
+    align-items: center;
+}
+p{
+    margin-bottom: 65px;
+    line-height: 2; /*the 2 means twice more*/
+}
+
+
+/* CENTERING A DIV (WRAPPER)*/
+.wrapper{
+    width: 1200px;
+    margin: 0 auto; 
+    align-items: flex-start; /*use this so image doesnt get squished/squashed*/
+}
+
+/* DISPLAYING TEXT NEXT TO IMAGE (need to specify the wrapper inside the main!!) */
+.main>.wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 80px;
+}
+.main-cat, .main-text{
+    width: 50%;
+    font-family: "Comic Sans MS";
+    font-size: 36px;
+}
+.main-cat{
+    margin-right: 50px;
+}
+.footer>.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.social{
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+}
+.social-item{
+    width: 66px;
+    height: 66px;
+    background-color: #ff7f00;
+    color: #fff;
+    display: flex;    /*these two lines are the golden ticket items*/
+    align-items: center; /*these two lines are the golden ticket items*/
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 36px;
+    font-family: "Arial";
+    margin-left: 10px;
+}
+.social-link{
+    color: #fff;
+    text-decoration: none;
+}
+.copy{
+    font-size: 24px;
+    font-family: "Arial";
+    margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+    .main>.wrapper{
+        flex-direction: column;
+    }
+    .wrapper{
+        width: 100%; /*if width is <576px (narrow phone screen) then the width must be 100%*/
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box; /*to ensure that the added padding does NOT increase overall width of browser box*/
+    }
+    .main-cat, .main-text{  
+        width: 100%; /*if width is <576px (narrow phone screen), the width of BOTH text (.main-text) AND image (.main-cat) now take up 100% bc they are columned now*/
+    }
+    .footer>.wrapper{
+        flex-direction: column;
+        align-items: flex-start; /*you must say this instead of align left*/
+    }
+}
+
+/*Our wrapper width is set to 1200px so if browser screen is longer than that
+width specified, then the header and footer images leave dangling white space.
+To fix this... */
+
+/* We're adding this rule now:
+if the wrapper width is less than 1200px, then the wrapper must take up 100% of the additional width */
+
+@media (max-width: 1200px) {
+    .wrapper{
+        width: 100%; /*if width is <1200px the width must be 100%*/
+    }
+}
